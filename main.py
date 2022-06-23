@@ -1,4 +1,4 @@
-from funcoes import *
+from functions import *
 
 while True:
     opc_escolhida = menuPrincipal()
