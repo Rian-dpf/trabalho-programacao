@@ -112,15 +112,12 @@ def entradaCliente():
 
     nova_lista = []
 
-    for i in lista_nova[0]:
-        nova_lista.append(i)
-        nova_lista.append(',')
+    for i in range(len(lista_nova)):
+        for x in lista_nova[i]:
+            nova_lista.append(x)
+            nova_lista.append(',')
 
-    nova_lista.append('\n')
-
-    for i in lista_nova[1]:
-        nova_lista.append(i)
-        nova_lista.append(',')
+        nova_lista.append('\n')
 
     os.remove('reservas.txt')
     
