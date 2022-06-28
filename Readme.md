@@ -80,6 +80,7 @@ o Nessa tela, o sistema deverá apresentar as seguintes opções:
 ▪ 5 - Relatório total recebido (somar valor de todas as reservas
 finalizadas)
 ▪ 6 – Relatório de Reserva por pessoa (Pesquisa por CPF)
+
 Informações gerais para o desenvolvimento:
 ▪ A linguagem para desenvolvimento deverá ser a linguagem Python.
 ▪ Todas as informações deverão ser salvas em um arquivo .txt.

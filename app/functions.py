@@ -1,0 +1,374 @@
+import os
+
+def menuPrincipal():
+    print("Escolha uma das opções abaixo! \n")
+    print("1 - Cadastrar uma reserva.")
+    print("2 - Entrada do cliente (Check in)")
+    print("3 - Saída do cliente (Check out)")
+    print("4 - Alterar Reserva")
+    print("5 - Relatórios")
+    print("6 - Sair \n")
+
+    opc = int(input("Digite a opção desejada: "))
+
+    return opc
+
+def cadastroReservas():
+    print("\nFavor preencher as informações necessárias \n")
+
+    nome_pessoa = str(input("Nome: "))  + ','
+    while nome_pessoa == '':
+        print(f"A informação do nome é obrigatória! \n")
+        nome_pessoa = str(input("Nome: "))  + ','
+
+    cpf = str(input("CPF: ")) + ','
+    while cpf == '':
+        print(f"A informação do CPF é obrigatória! \n")
+        cpf = str(input("CPF: "))  + ','
+
+    nr_pessoas = str(input("Número de pessoas: "))
+    while nr_pessoas == '':
+        print(f"A informação do Número de pessoas é obrigatória! \n")
+        nr_pessoas = str(input("Número de pessoas: "))
+
+    print(" \nEscolha o tipo de quarto: \n")
+    print("S - Standard")
+    print("D – Deluxe")
+    print("P – Premium \n")
+
+    tipo_quartos = str(input("Digite aopção desejada: "))  + ','
+    while tipo_quartos == '':
+        print(f"A informação do Tipo de quarto é obrigatória! \n")
+        tipo_quartos = str(input("Digite aopção desejada: ")) + ','
+
+    nr_dias = str(input("Número de dias: ")) + ','
+    while nr_dias == '':
+        print(f"A informação do número de dias é obrigatória! \n")
+        nr_dias = str(input("Número de dias: ")) + ','
+
+    if str(tipo_quartos) == 'S':
+        valor = 100 * int(nr_pessoas)
+    elif str(tipo_quartos) == 'D':
+        valor = 200 * int(nr_pessoas)
+    else:
+        valor = 300 * int(nr_pessoas)
+
+    nr_pessoas = str(nr_pessoas) + ','
+    valor = str(valor) + ','
+    status = 'R \n'
+
+    dados_reserva = []
+
+    dados_reserva.append(nome_pessoa)
+    dados_reserva.append(cpf)
+    dados_reserva.append(nr_pessoas)
+    dados_reserva.append(tipo_quartos)
+    dados_reserva.append(nr_dias)
+    dados_reserva.append(str(valor))
+    dados_reserva.append(status)
+
+    arquivo = open("app/reservas.txt", "a")
+    arquivo.writelines(dados_reserva)
+    arquivo.close()
+
+    print("\nCadastro Realizado com sucesso !!!! \n")
+
+def entradaCliente():
+    cpf_cliente = str(input("Digite o CPF do cliente: ")) + ','
+    novos_dados_reserva = []
+
+    arquivo = open("app/reservas.txt", "r")
+    dados_reserva = arquivo.readlines()
+    arquivo.close()
+
+    for i in dados_reserva:
+        nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+        nome = nome + ','
+        cpf = cpf + ','
+        nr_pessoas = nr_pessoas + ','
+        tipo_quarto = tipo_quarto + ','
+        nr_dias = nr_dias + ','
+        valor = valor + ','
+        status = status
+
+        if cpf_cliente == cpf and status == 'R \n':
+            print("Deseja alterar o status da reserva para Ativo? \n")
+
+            print("S - Sim")
+            print("N - Não")
+
+            opc = str(input("\nDigite aqui: "))
+            if opc == 'S':
+                status = 'A \n'
+
+                novos_dados_reserva.append(nome)
+                novos_dados_reserva.append(cpf)
+                novos_dados_reserva.append(nr_pessoas)
+                novos_dados_reserva.append(tipo_quarto)
+                novos_dados_reserva.append(nr_dias)
+                novos_dados_reserva.append(valor)
+                novos_dados_reserva.append(status)
+        else:
+
+            novos_dados_reserva.append(nome)
+            novos_dados_reserva.append(cpf)
+            novos_dados_reserva.append(nr_pessoas)
+            novos_dados_reserva.append(tipo_quarto)
+            novos_dados_reserva.append(nr_dias)
+            novos_dados_reserva.append(valor)
+            novos_dados_reserva.append(status)
+
+        os.remove('app/reservas.txt')
+        arquivo = open("app/reservas.txt", "a")
+        arquivo.writelines(novos_dados_reserva)
+        arquivo.close()
+
+        print('Check in realizado com sucesso!')
+
+def saidaCliente():
+    cpf_cliente = str(input("Digite o CPF do cliente: ")) + ','
+    novos_dados_reserva = []
+
+    arquivo = open("app/reservas.txt", "r")
+    dados_reserva = arquivo.readlines()
+    arquivo.close()
+
+    for i in dados_reserva:
+        nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+        nome = nome + ','
+        cpf = cpf + ','
+        nr_pessoas = nr_pessoas + ','
+        tipo_quarto = tipo_quarto + ','
+        nr_dias = nr_dias + ','
+        valor = valor + ','
+        status = status
+
+        if cpf_cliente == cpf and status == 'A \n':
+            print("Deseja realizar o check-out deste cliente? \n")
+
+            print("S - Sim")
+            print("N - Não")
+
+            opc = str(input("\nDigite aqui: "))
+            if opc == 'S':
+                status = 'F \n'
+
+                novos_dados_reserva.append(nome)
+                novos_dados_reserva.append(cpf)
+                novos_dados_reserva.append(nr_pessoas)
+                novos_dados_reserva.append(tipo_quarto)
+                novos_dados_reserva.append(nr_dias)
+                novos_dados_reserva.append(valor)
+                novos_dados_reserva.append(status)
+        else:
+
+            novos_dados_reserva.append(nome)
+            novos_dados_reserva.append(cpf)
+            novos_dados_reserva.append(nr_pessoas)
+            novos_dados_reserva.append(tipo_quarto)
+            novos_dados_reserva.append(nr_dias)
+            novos_dados_reserva.append(valor)
+            novos_dados_reserva.append(status)
+
+        os.remove('app/reservas.txt')
+        arquivo = open("app/reservas.txt", "a")
+        arquivo.writelines(novos_dados_reserva)
+        arquivo.close()
+
+        print('Check-out realizado com sucesso!')
+
+def alteracaoReserva():
+    cpf_cliente = str(input("Digite o CPF do cliente: ")) + ','
+    novos_dados_reserva = []
+
+    arquivo = open("app/reservas.txt", "r")
+    dados_reserva = arquivo.readlines()
+    arquivo.close()
+
+    for i in dados_reserva:
+        nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+
+        nome = nome + ','
+        cpf = cpf + ','
+        nr_pessoas = nr_pessoas + ','
+        tipo_quarto = tipo_quarto + ','
+        nr_dias = nr_dias + ','
+        valor = valor + ','
+        status = status
+
+        if cpf_cliente == cpf:
+            nr_pessoas = str(input("Novo número de pessoas: "))
+            while nr_pessoas == '':
+                print(f"A informação do Número de pessoas é obrigatória! \n")
+                nr_pessoas = str(input("Número de pessoas: "))
+
+            print(" \nEscolha o tipo de quarto: \n")
+            print("S - Standard")
+            print("D – Deluxe")
+            print("P – Premium \n")
+
+            tipo_quarto = str(input("Digite aopção desejada: "))  + ','
+            while tipo_quarto == '':
+                print(f"A informação do Tipo de quarto é obrigatória! \n")
+                tipo_quarto = str(input("Digite aopção desejada: ")) + ','
+
+            nr_dias = str(input("Número de dias: ")) + ','
+            while nr_dias == '':
+                print(f"A informação do número de dias é obrigatória! \n")
+                nr_dias = str(input("Número de dias: ")) + ','
+
+            if str(tipo_quarto) == 'S':
+                valor = 100 * int(nr_pessoas)
+            elif str(tipo_quarto) == 'D':
+                valor = 200 * int(nr_pessoas)
+            else:
+                valor = 300 * int(nr_pessoas)
+
+            nr_pessoas = str(nr_pessoas) + ','
+            valor = str(valor) + ','
+
+            print('\nAlterar o status para? \n')
+
+            print('R - Reservado')
+            print('C - Cancelado')
+            print('A - Ativo')
+            print('F - Finalizado \n')
+            
+            status = str(input("Digite aqui o status: ")) + ' \n'
+
+            novos_dados_reserva.append(nome)
+            novos_dados_reserva.append(cpf)
+            novos_dados_reserva.append(nr_pessoas)
+            novos_dados_reserva.append(tipo_quarto)
+            novos_dados_reserva.append(nr_dias)
+            novos_dados_reserva.append(str(valor))
+            novos_dados_reserva.append(status)
+        else:
+            novos_dados_reserva.append(nome)
+            novos_dados_reserva.append(cpf)
+            novos_dados_reserva.append(nr_pessoas)
+            novos_dados_reserva.append(tipo_quarto)
+            novos_dados_reserva.append(nr_dias)
+            novos_dados_reserva.append(str(valor))
+            novos_dados_reserva.append(status)
+
+    os.remove('app/reservas.txt')
+    arquivo = open("app/reservas.txt", "a")
+    arquivo.writelines(novos_dados_reserva)
+    arquivo.close()
+
+    print('Reserva alterada com sucesso!')
+
+def menuRelatorios():
+    print("\n1 - Relatório de todas as reservas com status R")
+    print("2 - Relatório de todas as reservas com status C")
+    print("3 - Relatório de todas as reservas com status A")
+    print("4 - Relatório de todas as reservas com status F")
+    print("5 - Relatório total recebido (somar valor de todas as reservas finalizadas")
+    print("6 – Relatório de Reserva por pessoa (Pesquisa por CPF) \n")
+
+    opc = int(input("Digite a opção desejada: "))
+
+    return opc
+
+def relatorioReservas():
+    opc_escolhida = menuRelatorios()
+
+    if opc_escolhida == 1:
+        arquivo = open("app/reservas.txt", "r")
+        dados_reserva = arquivo.readlines()
+        arquivo.close()
+
+        lista_reservas_status_r = []
+
+        for i in dados_reserva:
+            nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+            nome = nome + ','
+            cpf = cpf + ','
+            nr_pessoas = nr_pessoas + ','
+            tipo_quarto = tipo_quarto + ','
+            nr_dias = nr_dias + ','
+            valor = valor + ','
+            status = status
+
+            if status == 'R \n':
+                lista_reservas_status_r.append(nome)
+                lista_reservas_status_r.append(cpf)
+                lista_reservas_status_r.append(nr_pessoas)
+                lista_reservas_status_r.append(tipo_quarto)
+                lista_reservas_status_r.append(nr_dias)
+                lista_reservas_status_r.append(valor)
+                lista_reservas_status_r.append(status)
+            else:
+                pass
+    
+        os.remove('relatorios/relatorio_reservas_realizadas.txt')
+        arquivo = open("relatorios/relatorio_reservas_realizadas.txt", "a")
+        arquivo.writelines(lista_reservas_status_r)
+        arquivo.close()
+
+    elif opc_escolhida == 2:
+        arquivo = open("app/reservas.txt", "r")
+        dados_reserva = arquivo.readlines()
+        arquivo.close()
+
+        lista_reservas_status_c = []
+
+        for i in dados_reserva:
+            nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+            nome = nome + ','
+            cpf = cpf + ','
+            nr_pessoas = nr_pessoas + ','
+            tipo_quarto = tipo_quarto + ','
+            nr_dias = nr_dias + ','
+            valor = valor + ','
+            status = status
+
+            if status == 'C \n':
+                lista_reservas_status_c.append(nome)
+                lista_reservas_status_c.append(cpf)
+                lista_reservas_status_c.append(nr_pessoas)
+                lista_reservas_status_c.append(tipo_quarto)
+                lista_reservas_status_c.append(nr_dias)
+                lista_reservas_status_c.append(valor)
+                lista_reservas_status_c.append(status)
+            else:
+                pass
+    
+        os.remove('relatorios/relatorio_reservas_canceladas.txt')
+        arquivo = open("relatorios/relatorio_reservas_canceladas.txt", "a")
+        arquivo.writelines(lista_reservas_status_c)
+        arquivo.close()
+
+    elif opc_escolhida == 3:
+        arquivo = open("app/reservas.txt", "r")
+        dados_reserva = arquivo.readlines()
+        arquivo.close()
+
+        lista_reservas_status_a = []
+
+        for i in dados_reserva:
+            nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+            nome = nome + ','
+            cpf = cpf + ','
+            nr_pessoas = nr_pessoas + ','
+            tipo_quarto = tipo_quarto + ','
+            nr_dias = nr_dias + ','
+            valor = valor + ','
+            status = status
+
+            if status == 'A \n':
+                lista_reservas_status_a.append(nome)
+                lista_reservas_status_a.append(cpf)
+                lista_reservas_status_a.append(nr_pessoas)
+                lista_reservas_status_a.append(tipo_quarto)
+                lista_reservas_status_a.append(nr_dias)
+                lista_reservas_status_a.append(valor)
+                lista_reservas_status_a.append(status)
+            else:
+                pass
+    
+        os.remove('relatorios/relatorio_reservas_ativas.txt')
+        arquivo = open("relatorios/relatorio_reservas_ativas.txt", "a")
+        arquivo.writelines(lista_reservas_status_a)
+        arquivo.close()
