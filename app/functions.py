@@ -9,7 +9,7 @@ def menuPrincipal():
     print("5 - Relatórios")
     print("6 - Sair \n")
 
-    opc = int(input("Digite a opção desejada: "))
+    opc = input("Digite a opção desejada: ")
 
     return opc
 
