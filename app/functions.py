@@ -13,38 +13,34 @@ def menuPrincipal():
 
     return opc
 
+def validaVazio(arg1, arg2):
+    if arg1 == '':
+        while arg1 == '':
+            print(f"{arg2} obrigatório! \n")
+            arg1 = str(input(f"{arg2}: "))
+
+    return arg1
+
 def cadastroReservas():
     print("\nFavor preencher as informações necessárias \n")
 
-    nome_pessoa = str(input("Nome: "))  + ','
-    while nome_pessoa == '':
-        print(f"A informação do nome é obrigatória! \n")
-        nome_pessoa = str(input("Nome: "))  + ','
-
-    cpf = str(input("CPF: ")) + ','
-    while cpf == '':
-        print(f"A informação do CPF é obrigatória! \n")
-        cpf = str(input("CPF: "))  + ','
-
+    nome_pessoa = str(input("Nome: "))
+    nome_pessoa = validaVazio(nome_pessoa, 'Nome')
+    cpf = str(input("CPF: "))
+    cpf = validaVazio(cpf, 'CPF')
     nr_pessoas = str(input("Número de pessoas: "))
-    while nr_pessoas == '':
-        print(f"A informação do Número de pessoas é obrigatória! \n")
-        nr_pessoas = str(input("Número de pessoas: "))
+    nr_pessoas = validaVazio(nr_pessoas, 'Número de pessoas')
 
     print(" \nEscolha o tipo de quarto: \n")
     print("S - Standard")
     print("D – Deluxe")
     print("P – Premium \n")
 
-    tipo_quartos = str(input("Digite aopção desejada: "))  + ','
-    while tipo_quartos == '':
-        print(f"A informação do Tipo de quarto é obrigatória! \n")
-        tipo_quartos = str(input("Digite aopção desejada: ")) + ','
+    tipo_quartos = str(input("Digite aopção desejada: "))
+    tipo_quartos = validaVazio(tipo_quartos, 'Tipo de quarto')
 
-    nr_dias = str(input("Número de dias: ")) + ','
-    while nr_dias == '':
-        print(f"A informação do número de dias é obrigatória! \n")
-        nr_dias = str(input("Número de dias: ")) + ','
+    nr_dias = str(input("Número de dias: ")) 
+    nr_dias = validaVazio(nr_dias, 'Número de dias')
 
     if str(tipo_quartos) == 'S':
         valor = 100 * int(nr_pessoas)
@@ -53,18 +49,24 @@ def cadastroReservas():
     else:
         valor = 300 * int(nr_pessoas)
 
-    nr_pessoas = str(nr_pessoas) + ','
-    valor = str(valor) + ','
+    nr_pessoas = str(nr_pessoas) 
+    valor = str(valor) 
     status = 'R \n'
 
     dados_reserva = []
 
     dados_reserva.append(nome_pessoa)
+    dados_reserva.append(',')
     dados_reserva.append(cpf)
+    dados_reserva.append(',')
     dados_reserva.append(nr_pessoas)
+    dados_reserva.append(',')
     dados_reserva.append(tipo_quartos)
+    dados_reserva.append(',')
     dados_reserva.append(nr_dias)
+    dados_reserva.append(',')
     dados_reserva.append(str(valor))
+    dados_reserva.append(',')
     dados_reserva.append(status)
 
     arquivo = open("app/reservas.txt", "a")
