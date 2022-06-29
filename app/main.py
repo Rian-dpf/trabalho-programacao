@@ -14,12 +14,12 @@ while True:
 
     elif opc_escolhida == '4':
         alteracaoReserva()
-    
+
     elif opc_escolhida == '5':
         relatorioReservas()
-    
+
     elif opc_escolhida == '6':
         break
-        
+
     else:
         print("\nDIGITE UMA OPÇÃO VÁLIDA! \n")
