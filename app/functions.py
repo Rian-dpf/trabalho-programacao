@@ -267,14 +267,14 @@ def menuRelatorios():
     print("5 - Relatório total recebido (somar valor de todas as reservas finalizadas")
     print("6 – Relatório de Reserva por pessoa (Pesquisa por CPF) \n")
 
-    opc = int(input("Digite a opção desejada: "))
+    opc = input("Digite a opção desejada: ")
 
     return opc
 
 def relatorioReservas():
     opc_escolhida = menuRelatorios()
 
-    if opc_escolhida == 1:
+    if opc_escolhida == '1':
         arquivo = open("app/reservas.txt", "r")
         dados_reserva = arquivo.readlines()
         arquivo.close()
@@ -307,7 +307,7 @@ def relatorioReservas():
         arquivo.writelines(lista_reservas_status_r)
         arquivo.close()
 
-    elif opc_escolhida == 2:
+    elif opc_escolhida == '2':
         arquivo = open("app/reservas.txt", "r")
         dados_reserva = arquivo.readlines()
         arquivo.close()
@@ -340,7 +340,7 @@ def relatorioReservas():
         arquivo.writelines(lista_reservas_status_c)
         arquivo.close()
 
-    elif opc_escolhida == 3:
+    elif opc_escolhida == '3':
         arquivo = open("app/reservas.txt", "r")
         dados_reserva = arquivo.readlines()
         arquivo.close()
@@ -373,7 +373,7 @@ def relatorioReservas():
         arquivo.writelines(lista_reservas_status_a)
         arquivo.close()
 
-    elif opc_escolhida == 4:
+    elif opc_escolhida == '4':
         arquivo = open("app/reservas.txt", "r")
         dados_reserva = arquivo.readlines()
         arquivo.close()
@@ -406,7 +406,7 @@ def relatorioReservas():
         arquivo.writelines(lista_reservas_status_f)
         arquivo.close()
 
-    elif opc_escolhida == 5:
+    elif opc_escolhida == '5':
         arquivo = open("app/reservas.txt", "r")
         dados_reserva = arquivo.readlines()
         arquivo.close()
@@ -427,7 +427,7 @@ def relatorioReservas():
         arquivo.writelines(F'A soma de todas as reservas finalizadas da um total de: {str(total)} R$')
         arquivo.close()
 
-    elif opc_escolhida == 6:
+    elif opc_escolhida == '6':
         cpf_cliente = str(input("Digite o CPF do cliente: ")) + ','
         reserva_por_pessoa = []
 
