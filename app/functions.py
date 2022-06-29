@@ -372,3 +372,93 @@ def relatorioReservas():
         arquivo = open("relatorios/relatorio_reservas_ativas.txt", "a")
         arquivo.writelines(lista_reservas_status_a)
         arquivo.close()
+
+    elif opc_escolhida == 4:
+        arquivo = open("app/reservas.txt", "r")
+        dados_reserva = arquivo.readlines()
+        arquivo.close()
+
+        lista_reservas_status_f = []
+
+        for i in dados_reserva:
+            nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+            nome = nome + ','
+            cpf = cpf + ','
+            nr_pessoas = nr_pessoas + ','
+            tipo_quarto = tipo_quarto + ','
+            nr_dias = nr_dias + ','
+            valor = valor + ','
+            status = status
+
+            if status == 'F \n':
+                lista_reservas_status_f.append(nome)
+                lista_reservas_status_f.append(cpf)
+                lista_reservas_status_f.append(nr_pessoas)
+                lista_reservas_status_f.append(tipo_quarto)
+                lista_reservas_status_f.append(nr_dias)
+                lista_reservas_status_f.append(valor)
+                lista_reservas_status_f.append(status)
+            else:
+                pass
+    
+        os.remove('relatorios/relatorio_reservas_finalizadas.txt')
+        arquivo = open("relatorios/relatorio_reservas_finalizadas.txt", "a")
+        arquivo.writelines(lista_reservas_status_f)
+        arquivo.close()
+
+    elif opc_escolhida == 5:
+        arquivo = open("app/reservas.txt", "r")
+        dados_reserva = arquivo.readlines()
+        arquivo.close()
+
+        total_recebido = []
+
+        for i in dados_reserva:
+            nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+
+            if status == 'F \n':
+                total_recebido.append(int(valor))
+            else:
+                pass
+        total = sum(total_recebido)   
+
+        os.remove('relatorios/relatorio_total_recebido.txt')
+        arquivo = open("relatorios/relatorio_total_recebido.txt", "a")
+        arquivo.writelines(F'A soma de todas as reservas finalizadas da um total de: {str(total)} R$')
+        arquivo.close()
+
+    elif opc_escolhida == 6:
+        cpf_cliente = str(input("Digite o CPF do cliente: ")) + ','
+        reserva_por_pessoa = []
+
+        arquivo = open("app/reservas.txt", "r")
+        dados_reserva = arquivo.readlines()
+        arquivo.close()
+
+        for i in dados_reserva:
+            nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+            nome = nome + ','
+            cpf = cpf + ','
+            nr_pessoas = nr_pessoas + ','
+            tipo_quarto = tipo_quarto + ','
+            nr_dias = nr_dias + ','
+            valor = valor + ','
+            status = status
+
+            if cpf_cliente == cpf:
+                    reserva_por_pessoa.append(nome)
+                    reserva_por_pessoa.append(cpf)
+                    reserva_por_pessoa.append(nr_pessoas)
+                    reserva_por_pessoa.append(tipo_quarto)
+                    reserva_por_pessoa.append(nr_dias)
+                    reserva_por_pessoa.append(valor)
+                    reserva_por_pessoa.append(status)
+
+        os.remove('relatorios/relatorio_reserva_por_pessoa.txt')
+        arquivo = open("relatorios/relatorio_reserva_por_pessoa.txt", "a")
+        arquivo.writelines(reserva_por_pessoa)
+        arquivo.close()
+
+    else:
+        print('\nDigite uma opção válida! \n')
+        menuRelatorios()
