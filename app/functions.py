@@ -1,7 +1,7 @@
 import os
 
 def menuPrincipal():
-    print("Escolha uma das opções abaixo! \n")
+    print("\nEscolha uma das opções abaixo! \n")
     print("1 - Cadastrar uma reserva.")
     print("2 - Entrada do cliente (Check in)")
     print("3 - Saída do cliente (Check out)")
@@ -110,6 +110,17 @@ def entradaCliente():
                 novos_dados_reserva.append(nr_dias)
                 novos_dados_reserva.append(valor)
                 novos_dados_reserva.append(status)
+
+                print('\nCheck-in realizado com sucesso!! \n')
+            else:
+                novos_dados_reserva.append(nome)
+                novos_dados_reserva.append(cpf)
+                novos_dados_reserva.append(nr_pessoas)
+                novos_dados_reserva.append(tipo_quarto)
+                novos_dados_reserva.append(nr_dias)
+                novos_dados_reserva.append(valor)
+                novos_dados_reserva.append(status)
+
         else:
 
             novos_dados_reserva.append(nome)
@@ -120,12 +131,12 @@ def entradaCliente():
             novos_dados_reserva.append(valor)
             novos_dados_reserva.append(status)
 
+            print('\nNão encontramos este CPF na lista de reservas! \n')
+
         os.remove('app/reservas.txt')
         arquivo = open("app/reservas.txt", "a")
         arquivo.writelines(novos_dados_reserva)
         arquivo.close()
-
-        print('Check in realizado com sucesso!')
 
 def saidaCliente():
     cpf_cliente = str(input("Digite o CPF do cliente: ")) + ','
@@ -162,6 +173,16 @@ def saidaCliente():
                 novos_dados_reserva.append(nr_dias)
                 novos_dados_reserva.append(valor)
                 novos_dados_reserva.append(status)
+
+                print('Check-out realizado com sucesso!')
+            else:
+                novos_dados_reserva.append(nome)
+                novos_dados_reserva.append(cpf)
+                novos_dados_reserva.append(nr_pessoas)
+                novos_dados_reserva.append(tipo_quarto)
+                novos_dados_reserva.append(nr_dias)
+                novos_dados_reserva.append(valor)
+                novos_dados_reserva.append(status)
         else:
 
             novos_dados_reserva.append(nome)
@@ -172,12 +193,12 @@ def saidaCliente():
             novos_dados_reserva.append(valor)
             novos_dados_reserva.append(status)
 
+            print('\nNão encontramos este CPF na lista de reservas! \n')
+
         os.remove('app/reservas.txt')
         arquivo = open("app/reservas.txt", "a")
         arquivo.writelines(novos_dados_reserva)
         arquivo.close()
-
-        print('Check-out realizado com sucesso!')
 
 def alteracaoReserva():
     cpf_cliente = str(input("Digite o CPF do cliente: ")) + ','
@@ -245,6 +266,8 @@ def alteracaoReserva():
             novos_dados_reserva.append(nr_dias)
             novos_dados_reserva.append(str(valor))
             novos_dados_reserva.append(status)
+
+            print('\nReserva alterada com sucesso!')
         else:
             novos_dados_reserva.append(nome)
             novos_dados_reserva.append(cpf)
@@ -254,12 +277,12 @@ def alteracaoReserva():
             novos_dados_reserva.append(str(valor))
             novos_dados_reserva.append(status)
 
+            print('\nNão encontramos este CPF na lista de reservas! \n')
+
     os.remove('app/reservas.txt')
     arquivo = open("app/reservas.txt", "a")
     arquivo.writelines(novos_dados_reserva)
     arquivo.close()
-
-    print('Reserva alterada com sucesso!')
 
 def menuRelatorios():
     print("\n1 - Relatório de todas as reservas com status R")
