@@ -1,4 +1,4 @@
-# Equipe:
+# Equipe
 Rian, Pedro Henrique Hahn e Hebrom
 
 # Projeto
