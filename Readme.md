@@ -11,14 +11,16 @@ programação Python. O programa desenvolvido deverá cumprir as seguintes taref
 
 ● Menu principal
 
-o O usuário deverá ter acesso a um menu principal com as seguintes opções:
+O usuário deverá ter acesso a um menu principal com as seguintes opções:
+
     ▪ 1 - Cadastrar uma reserva.
     ▪ 2 - Entrada do cliente (Check in).
     ▪ 3 - Saída do cliente (Check out).
     ▪ 4 - Alterar reserva.
     ▪ 5 - Relatórios.
     ▪ 6 - Sair
-o O programa só deverá ser encerrado caso o usuário escolha a opção 6 - Sair.
+
+O programa só deverá ser encerrado caso o usuário escolha a opção 6 - Sair.
 
 ● Cadastro de Reservas
 
@@ -34,14 +36,16 @@ o O programa só deverá ser encerrado caso o usuário escolha a opção 6 - Sai
     ▪ Status (R - Reservado, C – Cancelado, A – Ativo, F - Finalizado) – No
     cadastro colocado automático como R.
 
-o Os campos considerados obrigatórios são:
+Os campos considerados obrigatórios são:
+
     ▪ Nome da pessoa Titular
     ▪ CPF
     ▪ Número de pessoas
     ▪ Tipo do Quarto ( S – Standar, D – Deluxe, P – Premium)
     ▪ Número de dias
     ▪ Valor (Já que é calculador de forma automática)
-o Caso algum dos campos considerados obrigatórios não forem fornecidos, o
+
+Caso algum dos campos considerados obrigatórios não forem fornecidos, o
 sistema deverá apresentar uma mensagem de aviso e reiniciar o cadastro.
 o O sistema deverá apresentar mensagem de realização de cadastro com
 sucesso, ex: ‘Cadastro Realizado com sucesso !!!! ’.
@@ -72,23 +76,25 @@ sucesso, ex: ‘Cadastro Realizado com sucesso !!!! ’.
 
 ● Alteração de reserva
 
-    o Para isso o usuário deverá realizar a busca de reserva pelo CPF.
-    o Caso exista mais de uma reserva no CPF da pessoa, o usuário deverá escolher
-    qual reserva ele quer alterar.
+Para isso o usuário deverá realizar a busca de reserva pelo CPF.
+Caso exista mais de uma reserva no CPF da pessoa, o usuário deverá escolher
+qual reserva ele quer alterar.
 
-o O sistema deverá permitir a alteração dos seguintes campos:
+O sistema deverá permitir a alteração dos seguintes campos:
+
     ▪ Número de pessoas
     ▪ Tipo do Quarto ( S – Standar, D – Deluxe, P – Premium)
     ▪ Número de dias
     ▪ Valor (Já que é calculado de forma automática)
     ▪ Status (R - Reservado, C – Cancelado, A – Ativo, F - Finalizado)
 
-o Ao inserir os novos dados sobre a reserva, o sistema deverá apresentar uma
+Ao inserir os novos dados sobre a reserva, o sistema deverá apresentar uma
 mensagem de confirmação de alteração.
 
 ● Relatório de Reservas
 
-o Nessa tela, o sistema deverá apresentar as seguintes opções:
+Nessa tela, o sistema deverá apresentar as seguintes opções:
+
     ▪ 1 - Relatório de todas as reservas com status R.
     ▪ 2 - Relatório de todas as reservas com status C.
     ▪ 3 - Relatório de todas as reservas com status A.
