@@ -22,4 +22,4 @@ while True:
         break
 
     else:
-        print("\nDIGITE UMA OPÇÃO VÁLIDA! \n")
+        print("\nDIGITE UMA OPÇÃO VÁLIDA!")

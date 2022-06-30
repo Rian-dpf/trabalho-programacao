@@ -1,9 +1,6 @@
 # Equipe:
 Rian, Pedro Henrique Hahn e Hebrom
 
-# Obs:
-Não apagar os arquivos da pasta de relatórios
-
 # Projeto
 Para a projeto final da disciplina de Programação, a equipe (no máximo 3 alunos) deverá
 desenvolver um sistema para um hotel. O programa deverá ser desenvolvido na linguagem de
