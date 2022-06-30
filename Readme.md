@@ -2,7 +2,7 @@
 Rian, Pedro Henrique Hahn e Hebrom
 
 # Projeto
-Para a projeto final da disciplina de Programação, a equipe (no máximo 3 alunos) deverá
+Para a projeto final da disciplina de Programação da 1º Fase do curso de Engenharia de SoftWare, a equipe (no máximo 3 alunos) deverá
 desenvolver um sistema para um hotel. O programa deverá ser desenvolvido na linguagem de
 programação Python. O programa desenvolvido deverá cumprir as seguintes tarefas:
 
