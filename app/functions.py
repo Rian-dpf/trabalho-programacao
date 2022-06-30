@@ -76,7 +76,6 @@ def cadastroReservas():
     print("\nCadastro Realizado com sucesso !!!! \n")
 
 def entradaCliente():
-
     if os.path.isfile('C:/Users/rian.firmino/Documents/Python/trabalho-programacao/app/reservas.txt'):
         cpf_cliente = str(input("Digite o CPF do cliente: ")) + ','
         novos_dados_reserva = []
@@ -520,6 +519,7 @@ def relatorioReservas():
                 arquivo = open("relatorios/relatorio_reserva_por_pessoa.txt", "a")
                 arquivo.writelines(reserva_por_pessoa)
                 arquivo.close()
+                
             else:
                 arquivo = open("relatorios/relatorio_reserva_por_pessoa.txt", "a")
                 arquivo.writelines(reserva_por_pessoa)
