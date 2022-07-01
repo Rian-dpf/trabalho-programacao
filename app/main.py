@@ -5,7 +5,7 @@ while True:
 
     if opc_escolhida == '1':
         cadastroReservas()
-            
+
     elif opc_escolhida == '2':
         entradaCliente()
 
