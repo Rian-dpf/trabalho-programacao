@@ -215,8 +215,7 @@ def alteracaoReserva():
     arquivo.close()
 
     for i in dados_reserva:
-        nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(
-            ',')
+        nome, cpf, nr_pessoas, tipo_quartos, nr_dias, valor, status = i.split(',')
 
         if cpf_cliente == cpf:
 
@@ -259,7 +258,7 @@ def alteracaoReserva():
             novos_dados_reserva.append(',')
             novos_dados_reserva.append(nr_pessoas)
             novos_dados_reserva.append(',')
-            novos_dados_reserva.append(tipo_quarto)
+            novos_dados_reserva.append(tipo_quartos)
             novos_dados_reserva.append(',')
             novos_dados_reserva.append(nr_dias)
             novos_dados_reserva.append(',')
@@ -275,7 +274,7 @@ def alteracaoReserva():
             novos_dados_reserva.append(',')
             novos_dados_reserva.append(nr_pessoas)
             novos_dados_reserva.append(',')
-            novos_dados_reserva.append(tipo_quarto)
+            novos_dados_reserva.append(tipo_quartos)
             novos_dados_reserva.append(',')
             novos_dados_reserva.append(nr_dias)
             novos_dados_reserva.append(',')
