@@ -88,7 +88,8 @@ def entradaCliente():
     arquivo.close()
 
     for i in dados_reserva:
-        nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+        nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(
+            ',')
         nome = nome + ','
         cpf = cpf + ','
         nr_pessoas = nr_pessoas + ','
@@ -214,7 +215,8 @@ def alteracaoReserva():
     arquivo.close()
 
     for i in dados_reserva:
-        nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(',')
+        nome, cpf, nr_pessoas, tipo_quarto, nr_dias, valor, status = i.split(
+            ',')
 
         if cpf_cliente == cpf:
 
